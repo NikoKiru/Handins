@@ -9,8 +9,8 @@ fun main() {
    */
 
     println("Please enter your age below")
-    val inputAge = readLine()!!;
-    isAgeVallid(inputAge)
+    val inputAge = readLine()!!.toInt()
+    isAgeValid(inputAge)
 
 
     /*
@@ -30,7 +30,7 @@ fun main() {
      */
 
     val listOfNumbers:List<Double> = listOf(42.0,17.0,56.0,89.0,23.0);
-    println("the avarage number is " + calculateAverage(listOfNumbers))
+    println("the average is " + calculateAverage(listOfNumbers))
 
     /*
     4.
@@ -44,7 +44,7 @@ fun main() {
 
     println("Please Enter a cpr number below")
     val inputtedCPR = readLine()!!
-    println(isCprVallid(inputtedCPR))
+    println(isCprValid(inputtedCPR))
 
     /*
     5.
@@ -128,7 +128,7 @@ fun fizzBuzz() {
 }
 
 
-fun isCprVallid(cpr:String): Boolean {
+fun isCprValid(cpr:String): Boolean {
     if (cpr.length != 10 || !cpr.all {it.isDigit()}) {
         return false
     }
@@ -136,17 +136,12 @@ fun isCprVallid(cpr:String): Boolean {
     val day = cpr.substring(0, 2).toInt()
     val month = cpr.substring(2,4).toInt()
 
-    if (day > 31 || month > 12) {
-        return false
-    }
-    return true
+    return !(day > 31 || month > 12)
 }
 
 
-fun isAgeVallid(age:String) {
-    val ageInt:Int = age.toInt()
-
-    if (ageInt >= 18) {
+fun isAgeValid(age:Int) {
+   if (age >= 18) {
         println("You are elligible to vote")
     } else {
         println("You are not elligible to vote")
@@ -154,23 +149,11 @@ fun isAgeVallid(age:String) {
 }
 
 fun getMin(a:Int,b:Int,c:Int):Int{
-    if (a < b && a < c) {
-        return a
-    } else if (b < a && b < c) {
-        return b
-    } else {
-        return c
-    }
+    return minOf(a,b,c)
 }
 
 fun getMax(a:Int,b:Int,c:Int):Int{
-    if (a > b && a > c) {
-        return a
-    } else if (b > a && b > c) {
-        return b
-    } else {
-        return c
-    }
+    return maxOf(a,b,c);
 }
 
 fun calculateAverage (numbers:List<Double>):Double {
