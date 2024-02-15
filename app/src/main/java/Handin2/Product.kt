@@ -1,4 +1,4 @@
-package com.example.handins
+package Handin2
 
 open class Product(name:String,price:Double,quantity:Int) {
     open fun identifyProductCategory(){

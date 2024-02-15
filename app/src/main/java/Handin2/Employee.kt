@@ -1,4 +1,4 @@
-package com.example.handins
+package Handin2
 
 class Employee(val firstName:String,val lastName:String, salary:Double) {
 

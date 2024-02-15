@@ -1,4 +1,4 @@
-package com.example.handins
+package Handin2
 
 open class Computer(val storageInGb:Int, val os:String, val year:Int) {
     open fun turnOn(){
